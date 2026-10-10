@@ -1,0 +1,55 @@
+{
+  "info": {
+    "name": "Order Notification System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Place New Order",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:8081/api/v1/orders" },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"customerName\": \"Rohan Tibile\",\n  \"customerEmail\": \"rohan@test.com\",\n  \"productName\": \"Laptop\",\n  \"quantity\": 1,\n  \"price\": 75000.00\n}"
+        }
+      }
+    },
+    {
+      "name": "Get Order By ID",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8081/api/v1/orders/{{orderId}}" }
+      }
+    },
+    {
+      "name": "Get All Orders",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8081/api/v1/orders" }
+      }
+    },
+    {
+      "name": "Get Orders By Email",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8081/api/v1/orders?email=rohan@test.com" }
+      }
+    },
+    {
+      "name": "Update Status - CONFIRMED",
+      "request": {
+        "method": "PATCH",
+        "url": { "raw": "http://localhost:8081/api/v1/orders/{{orderId}}/status?status=CONFIRMED" }
+      }
+    },
+    {
+      "name": "Update Status - SHIPPED",
+      "request": {
+        "method": "PATCH",
+        "url": { "raw": "http://localhost:8081/api/v1/orders/{{orderId}}/status?status=SHIPPED" }
+      }
+    }
+  ]
+}
